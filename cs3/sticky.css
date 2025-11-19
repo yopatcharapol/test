@@ -1,0 +1,30 @@
+body{
+    color: azure;
+}
+.main-layot{
+
+}
+#stick1,#stick2,#stick3{
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+#stick1{
+    text-align: center;
+    background-color: plum;
+    box-shadow: 0px 0px 10px violet;
+}
+#stick2{
+    text-align: center;
+    background-color: red;
+    box-shadow: 0px 0px 20px rgb(230, 55, 55);
+}
+#stick3{
+    text-align: center;
+    background-color: rgb(113, 189, 0);
+    box-shadow: 0px 0px 20px rgb(60, 189, 88);
+}
