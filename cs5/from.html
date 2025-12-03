@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Form Upgrade</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 320px;
+        }
+
+        .form-box h2 {
+            text-align: center;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .gender-box {
+            margin: 10px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-box">
+        <h2>Basic Form</h2>
+
+        <input type="text" id="username" placeholder="Enter Name">
+        <input type="password" id="password" placeholder="Enter Password">
+
+        <!-- เลือกเพศ -->
+        <div class="gender-box">
+            <>Gender:</label>
+            <input type="radio" name="gender" value="Male"> Male  
+            <input type="radio" name="gender" value="Female"> Female  
+            <input type="radio" name="gender" value="Other"> Other  
+        </div>
+
+        <!-- เลือกอายุ -->
+        <select id="age">
+            <option value="">Select Age</option>
+            <!-- สร้างอายุ 10–60 -->
+            <script>
+                for (let i = 10; i <= 60; i++) {
+                    document.write(`<option value='${i}'>${i}</option>`);
+                }
+            </script>
+        </select>
+
+        <!-- เลือกไฟล์ -->
+        <input type="file" id="file">
+
+        <button onclick="submitForm()">Submit</button>
+    </div>
+
+    <script>
+        function submitForm() {
+            let name = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            let age = document.getElementById("age").value;
+            let file = document.getElementById("file").files[0];
+
+            let genderElement = document.querySelector("input[name='gender']:checked");
+            let gender = genderElement ? genderElement.value : "";
+
+            if (!name || !password || !gender || !age) {
+                alert("Please fill in all required fields!");
+                return;
+            }
+
+            alert(
+                "Name: " + name +
+                "\nPassword: " + password +
+                "\nGender: " + gender +
+                "\nAge: " + age +
+                "\nFile: " + (file ? file.name : "No file selected")
+            );
+        }
+    </script>
+
+</body>
+</html>
